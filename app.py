@@ -36,17 +36,39 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") == "yahooWeatherForecast":
+        baseurl = "https://query.yahooapis.com/v1/public/yql?"
+        yql_query = makeYqlQuery(req)
+        if yql_query is None:
+            return {}
+        yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
+        result = urlopen(yql_url).read()
+        data = json.loads(result)
+        res = makeWebhookResult(data)
+        return res
+    if req.get("result").get("action") == "where.is":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        facility = parameters.get("facility")
+
+        location = {'Toilets':'Beside Security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
+
+        speech = "The location of " + zone + " is " + str(cost[zone]) + " at Liverpool John Lennon Airport."
+
+        print("Response:")
+        print(speech)
+        return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-onlinestore-shipping"
+    }
+        
+          
+    else:
         return {}
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = makeYqlQuery(req)
-    if yql_query is None:
-        return {}
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data)
-    return res
+    
 
 
 def makeYqlQuery(req):
