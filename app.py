@@ -51,9 +51,9 @@ def processRequest(req):
         parameters = result.get("parameters")
         location = parameters.get("facility")
 
-        area = {'toilets':'from the exit, at the right hand side of main terminal building', 'Arrivals':'in the main terminal building', 'South America':'300', 'Asia':'400', 'Africa':'500'}
+        area = {'Toilets':'from the exit, at the right hand side of main terminal building', 'Arrivals':'in the main terminal building', 'Starbucks':'At the right hand side of terminal building', 'Spar':'At right hand side of terminal building', 'Africa':'500'}
 
-        speech = location + " is locatated " + str(area[location]) + " at Liverpool John Lennon Airport. Do you need anything else?"
+        speech = location + " are locatated " + str(area[location]) + " at Liverpool John Lennon Airport. Do you need anything else?"
 
         print("Response:")
         print(speech)
