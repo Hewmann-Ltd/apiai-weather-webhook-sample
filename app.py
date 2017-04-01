@@ -53,7 +53,7 @@ def processRequest(req):
 
         location = {'Toilets':'Beside Security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
 
-        speech = "The location of at Liverpool John Lennon Airport."
+        speech = "The location of the " + zone + " is: " + str(location[facility]) + " at Liverpool John Lennon Airport"
 
         print("Response:")
         print(speech)
