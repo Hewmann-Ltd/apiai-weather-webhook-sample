@@ -46,14 +46,14 @@ def processRequest(req):
         data = json.loads(result)
         res = makeWebhookResult(data)
         return res
-    if req.get("result").get("action") == "where.is":
+    elif req.get("result").get("action") == "where.is":
         result = req.get("result")
         parameters = result.get("parameters")
         facility = parameters.get("facility")
 
         location = {'Toilets':'Beside Security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
 
-        speech = "The location of " + zone + " is " + str(cost[zone]) + " at Liverpool John Lennon Airport."
+        speech = "The location of at Liverpool John Lennon Airport."
 
         print("Response:")
         print(speech)
@@ -62,7 +62,7 @@ def processRequest(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
+        "source": "Oblige Global Limited"
     }
         
           
