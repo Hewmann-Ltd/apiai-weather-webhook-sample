@@ -51,7 +51,7 @@ def processRequest(req):
         parameters = result.get("parameters")
         facility = parameters.get("facility")
 
-        location = {'Toilets':'Beside Security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
+        location = {'toilets':'Beside Security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
 
         speech = "The location of the " + zone + " is: " + str(location[facility]) + " at Liverpool John Lennon Airport"
 
