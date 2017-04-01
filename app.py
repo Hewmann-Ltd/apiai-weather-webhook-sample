@@ -49,11 +49,15 @@ def processRequest(req):
     elif req.get("result").get("action") == "where.is":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("facility")
+        location = parameters.get("facility")
 
         cost = {'toilets':'beside security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
-
-        speech = "The location of " + zone + " is "  + " at Liverpool John Lennon Airport. " + str(cost[zone]) 
+        if location == "toilets":
+            speech = "The location of " + location + " is beside security"  + " at Liverpool John Lennon Airport. "  
+        elif location == "car park":
+            speech = "The location of " + location + " is outside"  + " at Liverpool John Lennon Airport. "
+        else:
+            speech = "I'm afraid I don't know where the " + location + " is"
 
         print("Response:")
         print(speech)
