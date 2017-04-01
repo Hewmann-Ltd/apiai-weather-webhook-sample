@@ -49,11 +49,11 @@ def processRequest(req):
     elif req.get("result").get("action") == "where.is":
         result = req.get("result")
         parameters = result.get("parameters")
-        facility = parameters.get("facility")
+        zone = parameters.get("facility")
 
-        location = {'toilets':'Beside Security', 'North America':'200', 'South America':'300', 'Asia':'400', 'Africa':'500'}
+        cost = {'Toilets':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-        speech = "The location of the " + zone + " is: " + str(location[facility]) + " at Liverpool John Lennon Airport"
+        speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
 
         print("Response:")
         print(speech)
