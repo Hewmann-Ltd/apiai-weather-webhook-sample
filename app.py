@@ -53,7 +53,7 @@ def processRequest(req):
 
         cost = {'Toilets':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-        speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
+        speech = "The location of " + zone + " is "  + " at Liverpool John Lennon Airport."
 
         print("Response:")
         print(speech)
