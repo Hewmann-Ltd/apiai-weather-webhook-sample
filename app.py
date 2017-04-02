@@ -51,7 +51,7 @@ def processRequest(req):
         parameters = result.get("parameters")
         location = parameters.get("facility")
 
-        area = {'Toilets':'are located before security, beside Spar in Main Terminal building, or after security, at Gate 30, and Gate 3. We wanted to let you know that we are working hard to create the airport our region loves and are planning some renovations to the upper retail level, located after Security. The upgrades mean that we will have to close the toilets on the upper retail level. The nearest toilets will be on the lower retail level and there will be signage in place.','Arrivals':'in the main terminal building'}
+        area = {'Toilets':'are located before security, beside Spar in Main Terminal building, or after security, at Gate 30, and Gate 3. We wanted to let you know that we are working hard to create the airport our region loves and are planning some renovations to the upper retail level, located after Security. The upgrades mean that we will have to close the toilets on the upper retail level. The nearest toilets will be on the lower retail level and there will be signage in place.','Arrivals':'in the main terminal building', 'Starbucks':'is located at the check-in area, before security, and in the Departure Lounge, after security on the Lower Level.', 'Spar':'At right hand side of terminal building', 'Lounge':'Departure lounge, after security on the lower level. The Aspire Premium Lounge at Liverpool John Lennon Airport is open to all passengers regardless of travel class.'}
 
         speech = "Liverpool John Lennon Airport " + location + " " + str(area[location]) + " . Do you need anything else?"
 
