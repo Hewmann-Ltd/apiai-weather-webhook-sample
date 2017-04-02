@@ -57,17 +57,19 @@ def processRequest(req):
 
         print("Response:")
         print(speech)
-        return {
+        
+        
+          
+    else:
+        return {}
+    
+    return {
         "speech": speech,
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
         "source": "Oblige Global Limited"
     }
-        
-          
-    else:
-        return {}
     
 
 
